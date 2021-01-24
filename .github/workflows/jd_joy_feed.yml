@@ -2,7 +2,7 @@ name: jd_joy_feed
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '30 * * * *'
   watch:
     types: [started]
 jobs:
