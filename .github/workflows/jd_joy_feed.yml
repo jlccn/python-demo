@@ -2,12 +2,25 @@ name: jd_joy_feed
 
 on:
   schedule:
-    - cron: '* */4 * * *'
+    - cron: '* 2,6 * * *'
   watch:
     types: [started]
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:  
-      - name: Run a one-line script
-        run: echo Hello, world! +%Y-%m-%d
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+         
+      - name: 'Install requirements'
+        run: pip install -r ./requirements.txt 
+        
+      - name: 'run 宠汪汪' 
+        run: python3 jd_joy_feed.py 
+        env:
+            JD_COOKIE: ${{ secrets.JD_COOKIE }}
