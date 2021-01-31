@@ -2,7 +2,7 @@ name: jd_joy_feed
 
 on:
   schedule:
-    - cron: '44 * * * *'
+    - cron: '52 * * * *'
   watch:
     types: [started]
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
         
       - name: 'Set up Python'
         uses: actions/setup-python@v1
